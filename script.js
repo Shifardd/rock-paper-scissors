@@ -11,4 +11,11 @@ function getComputerChoice () {
   
 }
 
+function getHumanChoice () {
+  let humanChoice = prompt("Rock, Paper, Scissors?", '');
+  return humanChoice.toLowerCase()
+}
+ 
 console.log(getComputerChoice());
+console.log(getHumanChoice());
+
