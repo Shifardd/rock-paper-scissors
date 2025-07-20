@@ -54,13 +54,24 @@ function playRound (humanChoice, computerChoice) {
     } 
   }
   console.log(`Human Score: ${humanScore} \nComputer Score: ${computerScore}`);
-  
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+function playGame () {
+  let gameRounds = 5;
 
-playRound(humanSelection, computerSelection);
- 
+  while (gameRounds != 0) {
+    playRound(getHumanChoice(), getComputerChoice());
+    gameRounds--;
+  }
+  if (humanScore > computerScore) {
+    console.log(`You Win the Game! The score is ${humanScore} - ${computerScore}, in favor of you.`);
+  } else if (humanScore < computerScore) {
+    console.log(`You Lose the Game! The score is ${computerScore} - ${humanScore}, in favor of computer.`);
+  } else if (humanScore == computerScore) {
+    console.log(`The game is tied! The score is ${computerScore} - ${humanScore}, in favor of none.`);
+  }
+}
+
+ playGame()
 
 
