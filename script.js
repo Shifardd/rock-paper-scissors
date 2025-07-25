@@ -30,11 +30,6 @@ function getComputerChoice () {
   
 }
 
-// function getHumanChoice () {
-//   let humanChoice = prompt("Rock, Paper, Scissors?", '');
-//   return humanChoice.toLowerCase()
-// }
-
 function playRound (humanChoice, computerChoice) {
   choice.textContent = `Human: ${humanChoice} \nComputer: ${computerChoice}`;
   if (humanChoice == "rock") {
@@ -75,22 +70,5 @@ function playRound (humanChoice, computerChoice) {
   stats.appendChild(infoScore);
 }
 
-// function playGame () {
-//   let gameRounds = 5;
-
-//   while (gameRounds != 0) {
-//     playRound(getHumanChoice(), getComputerChoice());
-//     gameRounds--;
-//   }
-//   if (humanScore > computerScore) {
-//     console.log(`You Win the Game! The score is ${humanScore} - ${computerScore}, in favor of you.`);
-//   } else if (humanScore < computerScore) {
-//     console.log(`You Lose the Game! The score is ${computerScore} - ${humanScore}, in favor of computer.`);
-//   } else if (humanScore == computerScore) {
-//     console.log(`The game is tied! The score is ${computerScore} - ${humanScore}, in favor of none.`);
-//   }
-// }
-
-//  playGame()
 
 
