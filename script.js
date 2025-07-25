@@ -32,6 +32,9 @@ function getComputerChoice () {
 
 function playRound (humanChoice, computerChoice) {
   if (humanScore == 5 || computerScore == 5) {
+    for (let i = 0; i < button.length; i++) {
+      button[i].disabled = true;
+    }
     if (humanScore == 5) {
       stats.textContent = `Human Win! - Computer Lost!`;
     } else if (computerScore == 5) {
