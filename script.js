@@ -31,44 +31,61 @@ function getComputerChoice () {
 }
 
 function playRound (humanChoice, computerChoice) {
-  choice.textContent = `Human: ${humanChoice} \nComputer: ${computerChoice}`;
-  if (humanChoice == "rock") {
-    if (computerChoice == "rock") {
-      infoStatus.textContent = `Tie! You are both ${computerChoice}`;
-    } else if (computerChoice == "paper") {
-      infoStatus.textContent = `You Lose! ${computerChoice} beats ${humanChoice}`;
-      computerScore++;
-    } else if (computerChoice == "scissors") {
-      infoStatus.textContent = `You Win! ${humanChoice} beats ${computerChoice}`;
-      humanScore++;
+  if (humanScore == 5 || computerScore == 5) {
+    if (humanScore == 5) {
+      stats.textContent = `Human Win! - Computer Lost!`;
+    } else if (computerScore == 5) {
+      stats.textContent = `Human Lost! - Computer Win!`;
     }
-  } else if (humanChoice == "paper") {
-    if (computerChoice == "rock") {
-      infoStatus.textContent = `You Win! ${humanChoice} beats ${computerChoice}`;
-      humanScore++;
-    } else if (computerChoice == "paper") {
-      infoStatus.textContent = `Tie! You are both ${computerChoice}`;
-    } else if (computerChoice == "scissors") {
-      infoStatus.textContent = `You Lose! ${computerChoice} beats ${humanChoice}`;
-      computerScore++;
-    } 
-  } else if (humanChoice == "scissors") {
-    if (computerChoice == "rock") {
-      infoStatus.textContent = `You Lose! ${computerChoice} beats ${humanChoice}`;
-      computerScore++;
-    } else if (computerChoice == "paper") {
-      infoStatus.textContent = `You Win! ${humanChoice} beats ${computerChoice}`;
-      humanScore++;
-    } else if (computerChoice == "scissors") {
-      infoStatus.textContent = `Tie! You are both ${computerChoice}`;
-    } 
+    stats.removeChild(choice);
+    stats.removeChild(infoStatus);
+    stats.removeChild(infoScore);
   }
-  infoScore.textContent = `Human Score: ${humanScore} \nComputer Score: ${computerScore}`;
 
-  stats.appendChild(choice);
-  stats.appendChild(infoStatus);
-  stats.appendChild(infoScore);
+  choice.textContent = `Human: ${humanChoice} \nComputer: ${computerChoice}`;
+
+  if (humanScore <= 5 && computerScore <= 5) {
+    if (humanChoice == "rock") {
+      if (computerChoice == "rock") {
+        infoStatus.textContent = `Tie! You are both ${computerChoice}`;
+      } else if (computerChoice == "paper") {
+        infoStatus.textContent = `You Lose! ${computerChoice} beats ${humanChoice}`;
+        computerScore++;
+      } else if (computerChoice == "scissors") {
+        infoStatus.textContent = `You Win! ${humanChoice} beats ${computerChoice}`;
+        humanScore++;
+      }
+    } else if (humanChoice == "paper") {
+      if (computerChoice == "rock") {
+        infoStatus.textContent = `You Win! ${humanChoice} beats ${computerChoice}`;
+        humanScore++;
+      } else if (computerChoice == "paper") {
+        infoStatus.textContent = `Tie! You are both ${computerChoice}`;
+      } else if (computerChoice == "scissors") {
+        infoStatus.textContent = `You Lose! ${computerChoice} beats ${humanChoice}`;
+        computerScore++;
+      } 
+    } else if (humanChoice == "scissors") {
+      if (computerChoice == "rock") {
+        infoStatus.textContent = `You Lose! ${computerChoice} beats ${humanChoice}`;
+        computerScore++;
+      } else if (computerChoice == "paper") {
+        infoStatus.textContent = `You Win! ${humanChoice} beats ${computerChoice}`;
+        humanScore++;
+      } else if (computerChoice == "scissors") {
+        infoStatus.textContent = `Tie! You are both ${computerChoice}`;
+      } 
+    }
+    infoScore.textContent = `Human Score: ${humanScore} \nComputer Score: ${computerScore}`;
+
+    stats.appendChild(choice);
+    stats.appendChild(infoStatus);
+    stats.appendChild(infoScore);
+
+  }
 }
+
+
 
 
 
