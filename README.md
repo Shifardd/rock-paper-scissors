@@ -1,3 +1,3 @@
 # rock-paper-scissors
 
-Build console rps game using HTML, CSS, JS
+Build rps game using HTML, CSS, JS
