@@ -8,8 +8,6 @@ let choice = document.createElement('h2');
 let infoStatus = document.createElement('p');
 let infoScore = document.createElement('p');
 
-
-
 button.forEach(btn => {
   btn.addEventListener('click', (e) => {
     let humanChoice = e.target.textContent.toLowerCase();
@@ -27,7 +25,6 @@ function getComputerChoice () {
   } else if (computerChoice > 0.66 && computerChoice <= 1) {
     return "scissors";
   }
-  
 }
 
 function playRound (humanChoice, computerChoice) {
@@ -84,7 +81,6 @@ function playRound (humanChoice, computerChoice) {
     stats.appendChild(choice);
     stats.appendChild(infoStatus);
     stats.appendChild(infoScore);
-
   }
 }
 
