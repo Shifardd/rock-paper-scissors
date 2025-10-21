@@ -1,14 +1,37 @@
+:root {
+  --yellow: #FFFD8F;
+  --light-green: #B0CE88;
+  --green: #4C763B;
+  --dark-green: #043915;
+
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: black;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--light-green);
+  color: var(--yellow);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+header {
+  background-color: var(--dark-green);
+  width: 100%;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
 }
 
 h1 {
   font-weight: 900;
-  font-size: 2rem;
-  text-align: center;
-  background-color: green;
+  font-size: 4rem;
   border-radius: 10%;
 }
 
@@ -17,30 +40,29 @@ h1 {
   justify-content: center;
   gap: 2rem;
   margin: 5rem 0;
+  flex: 1;
 }
 
 .buttons button {
-  background-color: green;
-  color: white;
-  border: none;
-  padding: 1rem 2.5rem;
+  background-color: var(--yellow);
+  color: var(--dark-green);
+  border: var(--yellow);
+  width: 150px;
+  height: 150px;
   border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
   font-size: 1.5rem;
-  border: 1px solid green;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
 }
 
 .buttons button:hover {
-  background-color: white;
-  color: black;
-  border-color: white;
-}
-
-.buttons button:focus {
-  background-color: black;
-  color: green;
-  border-color: green;
+  background-color: var(--light-green);
+  border: 2px solid var(--dark-green);
 }
 
 .buttons button:disabled {
@@ -48,19 +70,23 @@ h1 {
   color: black;
 }
 
+.buttons button img {
+  height: 80px;
+}
+
 .status {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: green;
-  color: white;
-  border: 10px double rgb(100, 150, 100);
+  color: var(--yellow);
+  background-color: var(--dark-green);
   font-size: 2.5rem;
   font-weight: bold;
+  padding: 2rem 0;
 }
 
 .status h2 {
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 .status p {
