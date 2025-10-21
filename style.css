@@ -66,8 +66,8 @@ h1 {
 }
 
 .buttons button:disabled {
-  background-color: yellow;
-  color: black;
+  background-color: #CC3300;
+  color: var(--yellow);
 }
 
 .buttons button img {
