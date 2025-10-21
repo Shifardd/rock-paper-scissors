@@ -10,7 +10,7 @@ let infoScore = document.createElement('p');
 
 button.forEach(btn => {
   btn.addEventListener('click', (e) => {
-    let humanChoice = e.target.textContent.toLowerCase();
+    let humanChoice = e.target.className;
     playRound(humanChoice, getComputerChoice());
   })
 })
