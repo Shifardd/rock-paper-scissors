@@ -1,6 +1,9 @@
+// Initial scores
 let humanScore = 0;
 let computerScore = 0;
 
+
+// target elements
 let button = document.querySelectorAll('button');
 let stats = document.querySelector('.status');
 
@@ -8,13 +11,21 @@ let choice = document.createElement('h2');
 let infoStatus = document.createElement('p');
 let infoScore = document.createElement('p');
 
+
+// Get human choice and call playRound function
 button.forEach(btn => {
   btn.addEventListener('click', (e) => {
-    let humanChoice = e.target.className;
+    let humanChoice = getHumanChoice(e.target);
     playRound(humanChoice, getComputerChoice());
   })
 })
 
+function getHumanChoice (target) {
+  return target.className;
+}
+
+
+// Get computerChoice
 function getComputerChoice () {
   let computerChoice = Math.random();
   
@@ -46,35 +57,11 @@ function playRound (humanChoice, computerChoice) {
 
   if (humanScore <= 5 && computerScore <= 5) {
     if (humanChoice == "rock") {
-      if (computerChoice == "rock") {
-        infoStatus.textContent = `Tie! You are both ${computerChoice}`;
-      } else if (computerChoice == "paper") {
-        infoStatus.textContent = `You Lose! ${computerChoice} beats ${humanChoice}`;
-        computerScore++;
-      } else if (computerChoice == "scissors") {
-        infoStatus.textContent = `You Win! ${humanChoice} beats ${computerChoice}`;
-        humanScore++;
-      }
+      humanPickRock(humanChoice, computerChoice)
     } else if (humanChoice == "paper") {
-      if (computerChoice == "rock") {
-        infoStatus.textContent = `You Win! ${humanChoice} beats ${computerChoice}`;
-        humanScore++;
-      } else if (computerChoice == "paper") {
-        infoStatus.textContent = `Tie! You are both ${computerChoice}`;
-      } else if (computerChoice == "scissors") {
-        infoStatus.textContent = `You Lose! ${computerChoice} beats ${humanChoice}`;
-        computerScore++;
-      } 
+      humanPickPaper(humanChoice, computerChoice);
     } else if (humanChoice == "scissors") {
-      if (computerChoice == "rock") {
-        infoStatus.textContent = `You Lose! ${computerChoice} beats ${humanChoice}`;
-        computerScore++;
-      } else if (computerChoice == "paper") {
-        infoStatus.textContent = `You Win! ${humanChoice} beats ${computerChoice}`;
-        humanScore++;
-      } else if (computerChoice == "scissors") {
-        infoStatus.textContent = `Tie! You are both ${computerChoice}`;
-      } 
+      humanPickScissors(humanChoice, computerChoice)
     }
     infoScore.textContent = `Human Score: ${humanScore} \nComputer Score: ${computerScore}`;
 
@@ -85,6 +72,38 @@ function playRound (humanChoice, computerChoice) {
 }
 
 
+function humanPickRock (humanChoice, computerChoice) {
+  if (computerChoice == "rock") {
+    infoStatus.textContent = `Tie! You are both ${computerChoice}`;
+  } else if (computerChoice == "paper") {
+    infoStatus.textContent = `You Lose! ${computerChoice} beats ${humanChoice}`;
+    computerScore++;
+  } else if (computerChoice == "scissors") {
+    infoStatus.textContent = `You Win! ${humanChoice} beats ${computerChoice}`;
+    humanScore++;
+  }
+}
 
+function humanPickPaper (humanChoice, computerChoice) {
+  if (computerChoice == "rock") {
+    infoStatus.textContent = `You Win! ${humanChoice} beats ${computerChoice}`;
+    humanScore++;
+  } else if (computerChoice == "paper") {
+    infoStatus.textContent = `Tie! You are both ${computerChoice}`;
+  } else if (computerChoice == "scissors") {
+    infoStatus.textContent = `You Lose! ${computerChoice} beats ${humanChoice}`;
+    computerScore++;
+  } 
+}
 
-
+function humanPickScissors (humanChoice, computerChoice) {
+  if (computerChoice == "rock") {
+    infoStatus.textContent = `You Lose! ${computerChoice} beats ${humanChoice}`;
+    computerScore++;
+  } else if (computerChoice == "paper") {
+    infoStatus.textContent = `You Win! ${humanChoice} beats ${computerChoice}`;
+    humanScore++;
+  } else if (computerChoice == "scissors") {
+    infoStatus.textContent = `Tie! You are both ${computerChoice}`;
+  } 
+}
