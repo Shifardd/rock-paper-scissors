@@ -1,0 +1,4 @@
+1.Get Human choice by clicking one of the three buttons 
+2. Get Computer choice by using Math random (each has equal probability to choose). 
+3. Then compare them (rock beats scissors, paper beats rock, scissors beat paper) 
+4. The winner will be announced when he/she will get 5 points.
