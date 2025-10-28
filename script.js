@@ -123,6 +123,7 @@ function humanPickScissors (humanChoice, computerChoice) {
 
 function decide () {
     buttonDiv.style.cssText = 'display: none;';
+    stats.style.cssText = 'height: 100%; display: flex; justify-content: center; align-items:center;';
     if (humanScore == 4) {
       stats.textContent = `Human Win! - Computer Lost!`;
       Swal.fire("You Win!!!");
