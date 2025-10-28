@@ -31,7 +31,7 @@ header {
 
 h1 {
   font-weight: 900;
-  font-size: 4rem;
+  font-size: 6rem;
   border-radius: 10%;
 }
 
@@ -75,17 +75,68 @@ h1 {
   align-items: center;
   color: var(--light-blue);
   background-color: var(--gray);
-  font-size: 2.5rem;
+  font-size: 4rem;
   font-weight: bold;
   padding: 2rem 0;
 }
 
 .status h2 {
-  font-size: 3rem;
+  font-size: 4rem;
+  color: var(--light);
 }
 
 .status p {
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
+
+@media (max-width: 1023px) {
+  header h1 {
+    font-size: 3rem;
+  }
+  .status {
+    font-size: 3rem;
+    text-align: center;
+  }
+  .status h2 {
+    font-size: 3rem;
+    text-align: center;
+  }
+  .status p {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 549px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem;
+  }
+  .buttons button {
+    font-size: 0.9rem;
+    width: 100%;
+    height: 100px;
+  }
+  .buttons button img {
+    height: 50px;
+  }
+  .status {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .status h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .status p {
+    font-size: 1rem;
+    text-align: center;
+  }
+}
