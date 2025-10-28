@@ -39,6 +39,7 @@ function getComputerChoice () {
   }
 }
 
+// Function to make this stop when someone gets 5 points
 function playRound (humanChoice, computerChoice) {
   if (humanScore < 5 && computerScore < 5) {
     if (humanChoice == "rock") {
@@ -120,7 +121,7 @@ function humanPickScissors (humanChoice, computerChoice) {
   } 
 }
 
-
+// Function to decide the winner
 function decide () {
     buttonDiv.style.cssText = 'display: none;';
     stats.style.cssText = 'height: 100%; display: flex; justify-content: center; align-items:center;';
