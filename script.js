@@ -4,6 +4,7 @@ let computerScore = 0;
 
 
 // target elements
+let buttonDiv = document.querySelector('.buttons');
 let button = document.querySelectorAll('button');
 let stats = document.querySelector('.status');
 
@@ -39,23 +40,7 @@ function getComputerChoice () {
 }
 
 function playRound (humanChoice, computerChoice) {
-  if (humanScore == 5 || computerScore == 5) {
-    for (let i = 0; i < button.length; i++) {
-      button[i].disabled = true;
-    }
-    if (humanScore == 5) {
-      stats.textContent = `Human Win! - Computer Lost!`;
-    } else if (computerScore == 5) {
-      stats.textContent = `Human Lost! - Computer Win!`;
-    }
-    stats.removeChild(choice);
-    stats.removeChild(infoStatus);
-    stats.removeChild(infoScore);
-  }
-
-  choice.textContent = `Human: ${humanChoice} \nComputer: ${computerChoice}`;
-
-  if (humanScore <= 5 && computerScore <= 5) {
+  if (humanScore < 5 && computerScore < 5) {
     if (humanChoice == "rock") {
       humanPickRock(humanChoice, computerChoice)
     } else if (humanChoice == "paper") {
@@ -63,12 +48,15 @@ function playRound (humanChoice, computerChoice) {
     } else if (humanChoice == "scissors") {
       humanPickScissors(humanChoice, computerChoice)
     }
+    choice.textContent = `Human: ${humanChoice} \nComputer: ${computerChoice}`;
     infoScore.textContent = `Human Score: ${humanScore} \nComputer Score: ${computerScore}`;
 
-    stats.appendChild(choice);
-    stats.appendChild(infoStatus);
-    stats.appendChild(infoScore);
+    humanChoice = '';
+    computerChoice = '';
   }
+  stats.appendChild(choice);
+  stats.appendChild(infoStatus);
+  stats.appendChild(infoScore);
 }
 
 
@@ -76,34 +64,75 @@ function humanPickRock (humanChoice, computerChoice) {
   if (computerChoice == "rock") {
     infoStatus.textContent = `Tie! You are both ${computerChoice}`;
   } else if (computerChoice == "paper") {
-    infoStatus.textContent = `You Lose! ${computerChoice} beats ${humanChoice}`;
-    computerScore++;
+    if (computerScore == 4) {
+      decide();
+    } else {
+      infoStatus.textContent = `You Lose! ${computerChoice} beats ${humanChoice}`;
+      computerScore++;
+    }
   } else if (computerChoice == "scissors") {
-    infoStatus.textContent = `You Win! ${humanChoice} beats ${computerChoice}`;
-    humanScore++;
+    if (humanScore == 4) {
+      decide();
+    } else {
+      infoStatus.textContent = `You Win! ${humanChoice} beats ${computerChoice}`;
+      humanScore++;
+    }
   }
 }
 
 function humanPickPaper (humanChoice, computerChoice) {
   if (computerChoice == "rock") {
-    infoStatus.textContent = `You Win! ${humanChoice} beats ${computerChoice}`;
-    humanScore++;
+    if (humanScore == 4) {
+      decide();
+    } else {
+      infoStatus.textContent = `You Win! ${humanChoice} beats ${computerChoice}`;
+      humanScore++;
+    }
   } else if (computerChoice == "paper") {
     infoStatus.textContent = `Tie! You are both ${computerChoice}`;
   } else if (computerChoice == "scissors") {
-    infoStatus.textContent = `You Lose! ${computerChoice} beats ${humanChoice}`;
-    computerScore++;
+    if (computerScore == 4) {
+      decide();
+    } else {
+      infoStatus.textContent = `You Lose! ${computerChoice} beats ${humanChoice}`;
+      computerScore++;
+    }
   } 
 }
 
 function humanPickScissors (humanChoice, computerChoice) {
   if (computerChoice == "rock") {
-    infoStatus.textContent = `You Lose! ${computerChoice} beats ${humanChoice}`;
-    computerScore++;
+    if (computerScore == 4) {
+      decide();
+    } else {
+      infoStatus.textContent = `You Lose! ${computerChoice} beats ${humanChoice}`;
+      computerScore++;
+    }
   } else if (computerChoice == "paper") {
-    infoStatus.textContent = `You Win! ${humanChoice} beats ${computerChoice}`;
-    humanScore++;
+    if (humanScore == 4) {
+      decide();
+    } else {
+      infoStatus.textContent = `You Win! ${humanChoice} beats ${computerChoice}`;
+      humanScore++;
+    }
   } else if (computerChoice == "scissors") {
     infoStatus.textContent = `Tie! You are both ${computerChoice}`;
   } 
 }
+
+
+function decide () {
+    buttonDiv.style.cssText = 'display: none;';
+    if (humanScore == 4) {
+      stats.textContent = `Human Win! - Computer Lost!`;
+      Swal.fire("You Win!!!");
+    } else if (computerScore == 4) {
+      stats.textContent = `Human Lost! - Computer Win!`;
+      Swal.fire("You Lose!!!");
+    }
+
+    stats.removeChild(choice);
+    stats.removeChild(infoStatus);
+    stats.removeChild(infoScore);
+}
+
