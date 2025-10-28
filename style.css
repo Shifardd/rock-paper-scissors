@@ -1,8 +1,8 @@
 :root {
-  --yellow: #FFFD8F;
-  --light-green: #B0CE88;
-  --green: #4C763B;
-  --dark-green: #043915;
+  --light: #EEEEEE;
+  --light-blue: #00ADB5;
+  --gray: #393E46;
+  --dark-gray: #222831;
 
 }
 
@@ -14,15 +14,15 @@
 }
 
 body {
-  background-color: var(--light-green);
-  color: var(--yellow);
+  background-color: var(--light);
+  color: var(--dark-gray);
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
 
 header {
-  background-color: var(--dark-green);
+  background-color: var(--light-blue);
   width: 100%;
   padding: 1rem 0;
   display: flex;
@@ -44,9 +44,9 @@ h1 {
 }
 
 .buttons button {
-  background-color: var(--yellow);
-  color: var(--dark-green);
-  border: var(--yellow);
+  background-color: var(--light-blue);
+  color: var(--dark-gray);
+  border: 3px solid var(--dark-gray);
   width: 150px;
   height: 150px;
   border-radius: 10px;
@@ -57,17 +57,12 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: all 0.3s;
+  transition: all 0.5s;
 }
 
 .buttons button:hover {
-  background-color: var(--light-green);
-  border: 2px solid var(--dark-green);
-}
-
-.buttons button:disabled {
-  background-color: #CC3300;
-  color: var(--yellow);
+  background-color: var(--light);
+  border: 10px solid var(--dark-gray);
 }
 
 .buttons button img {
@@ -78,8 +73,8 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: var(--yellow);
-  background-color: var(--dark-green);
+  color: var(--light-blue);
+  background-color: var(--gray);
   font-size: 2.5rem;
   font-weight: bold;
   padding: 2rem 0;
