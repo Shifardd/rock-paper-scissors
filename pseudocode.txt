@@ -1,4 +1,15 @@
-1.Get Human choice by clicking one of the three buttons 
-2. Get Computer choice by using Math random (each has equal probability to choose). 
-3. Then compare them (rock beats scissors, paper beats rock, scissors beat paper) 
-4. The winner will be announced when he/she will get 5 points.
+INITIALIZE: humanScore = 0, computerScore = 0, 
+
+WHILE humanScore < 5 AND computerScore < 5:
+    1. LISTEN for button click (Rock, Paper, or Scissors)
+    2. GENERATE random choice for Computer
+    3. COMPARE choices:
+       - IF Human == Computer: "Tie"
+       - IF Human wins: humanScore + 1
+       - ELSE: computerScore + 1
+    4. UPDATE score display on screen
+
+IF humanScore == 5 OR computerScore == 5:
+    1. DISPLAY "Winner" message
+    2. SHOW "Retry" button
+    3. ON CLICK "Retry": Reset scores to 0 and Clear message
