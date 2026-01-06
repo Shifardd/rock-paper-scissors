@@ -5,26 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rock-Paper-Scissors</title>
   <link rel="stylesheet" href="./style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>Rock-Paper-Scissors</h1>
+  <header class="w-full flex justify-center ">
+    <h1 class="font-bold text-5xl">Rock-Paper-Scissors</h1>
   </header>
-  <div class="status"></div>
-  <div class="buttons">
-    <button class="rock">
-      <img src="./rock.png" alt="rock" class="rock"><span class="rock">ROCK</span>
+  <div class="buttons flex flex-1  justify-center items-center gap-25">
+    <button data-choice="rock" class="rock">
+      <img src="./images/rock.png" alt="rock icon">ROCK
     </button>
-    <button class="paper">
-      <img src="./hand.svg" alt="paper" class="paper"><span class="paper">PAPER</span>
+    <button data-choice="paper" class="paper">
+      <img src="./images/hand.svg" alt="paper icon">PAPER
     </button>
-    <button class="scissors">
-      <img src="./scissor.svg" alt="scissors" class="scissors"><span class="paper">SCISSORS</span>
+    <button data-choice="scissors" class="scissors">
+      <img src="./images/scissor.svg" alt="scissors icon">SCISSORS
     </button>
   </div>
+  <div class="status flex flex-col font-bold"></div>
+
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="./script.js"></script>
